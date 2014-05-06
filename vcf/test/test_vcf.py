@@ -410,9 +410,9 @@ class TestMixedFiltering(unittest.TestCase):
         Test mix of FILTER values (pass, filtered, no filtering).
         """
         reader = vcf.Reader(fh(self.filename))
-        self.assertEqual(next(reader).FILTER, [])
+        self.assertEqual(next(reader).FILTER, ['PASS'])
         self.assertEqual(next(reader).FILTER, ['q10'])
-        self.assertEqual(next(reader).FILTER, [])
+        self.assertEqual(next(reader).FILTER, ['PASS'])
         self.assertEqual(next(reader).FILTER, None)
         self.assertEqual(next(reader).FILTER, ['q10', 'q50'])
 
